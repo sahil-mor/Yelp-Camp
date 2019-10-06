@@ -12,7 +12,7 @@ var commentRoutes = require("./routes/comments")
 var campgroundRoutes = require("./routes/campgrounds")
 var indexRoutes = require("./routes/index")
 var flash  = require("connect-flash")
-mongoose.connect("mongodb+srv://SahilMor:Sahil%4014@yelpcamp-fhn8u.mongodb.net/test?retryWrites=true&w=majority&authSource=admin", { useNewUrlParser: true })
+mongoose.connect("mongodb+srv://SahilMor:Sahil%4014@yelpcamp-fhn8u.mongodb.net/users_test?retryWrites=true&w=majority&authSource=admin", { useNewUrlParser: true })
 app.use(flash());
 app.use(bodyParser.urlencoded({extended:true}))
 app.use(express.static("public"))
