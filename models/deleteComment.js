@@ -1,6 +1,6 @@
-var Comment = require("./comment")
+var comment = require("./comment")
 function deleteComment(req,res){
-    Comment.findByIdAndDelete(req.params.commentId,function(err,comment){
+    comment.findByIdAndDelete(req.params.commentId,function(err,comment){
         if(err){
             req.flash("error","Comment Cannot Be Deleted")
             res.redirect("/campgrounds/" + req.params.id)

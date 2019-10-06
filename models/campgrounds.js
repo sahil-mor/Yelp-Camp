@@ -19,6 +19,6 @@ var campgroundSchema = new mongoose.Schema({
     } 
 })
 
-var Campground = mongoose.model("Campground",campgroundSchema);
+var campground = mongoose.model("Campground",campgroundSchema);
 
-module.exports = Campground
+module.exports = campground

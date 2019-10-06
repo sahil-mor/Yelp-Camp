@@ -1,6 +1,6 @@
-var Campground = require("./campgrounds")
+var campground = require("./campgrounds")
 function deleteCampground(req,res){
-    Campground.findByIdAndDelete(req.params.campgroundId,function(err,foundCampground){
+    campground.findByIdAndDelete(req.params.campgroundId,function(err,foundCampground){
         if(err){
             req.flash("error","Campground Cannot Be Deleted")
             res.redirect("/campgrounds/" + req.params.campgroundId)

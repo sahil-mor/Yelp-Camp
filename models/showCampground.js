@@ -1,8 +1,8 @@
-var Campground = require("./campgrounds")
+var campground = require("./campgrounds")
 
 function ShowCampground(req,res){
    //req.user has the information of logged in user
-    Campground.find(function(error,campgrounds){
+    campground.find(function(error,campgrounds){
         if(error){
             console.log(error)
         }
