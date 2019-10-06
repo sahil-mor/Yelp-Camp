@@ -12,7 +12,6 @@ var commentRoutes = require("./routes/comments")
 var campgroundRoutes = require("./routes/campgrounds")
 var indexRoutes = require("./routes/index")
 var flash  = require("connect-flash")
-// mongoose.connect('mongodb://localhost:27017/yelp_camp', { useNewUrlParser: true });
 mongoose.connect("mongodb+srv://SahilMor:Sahil%4014@yelpcamp-fhn8u.mongodb.net/test?retryWrites=true&w=majority", { useNewUrlParser: true })
 app.use(flash());
 app.use(bodyParser.urlencoded({extended:true}))
@@ -44,6 +43,4 @@ app.use("/campgrounds",campgroundRoutes)
 app.use(indexRoutes)
 
 var port_number = app.listen(process.env.PORT || 3000);
-app.listen(port_number,function(){
-    console.log("server " + port_number)
-});
+app.listen(port_number);
