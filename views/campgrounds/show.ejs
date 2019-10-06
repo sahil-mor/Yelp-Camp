@@ -1,0 +1,60 @@
+<% include ../partials/header %>
+
+<div class="container">
+    <div class="row">
+
+        <div class="col-md-3">
+            <p class="lead">YELPCAMP</p>
+            <div class="list-group">
+              <li class="list-group-item active">INFO 1</li>
+              <li class="list-group-item">INFO 2</li>
+              <li class="list-group-item">INFO 3</li>
+            </div>
+        </div>
+
+        <div class="col-md-9">
+          <div class="thumbnail" id="show">
+              <img class="img-responsive" src=<%=campground["image"] %> alt="">
+              <div class="caption-full">
+                  <h4 class="pull-right">Rs.2000/night</h4>
+              </div>
+              <h4> <a href="" style="padding: 10px"> <%= campground["name"] %> </a> </h4>
+              <p>  <%= campground.description %> </p> 
+              <p> <em>Submitted By - <%= campground['author']['username'] %> </em></p>
+              <% if(validity == 1 && author.id === loggedInUserId ){ %>
+               <p> <a href="/campgrounds/edit/<%=campground['id']%>/By/<%=author['id']%>" class="btn btn-warning">Edit Campground</a>
+                    <a href="/campgrounds/delete/<%=campground['id']%>" class="btn btn-danger">Delete Campground</a>
+            </p> 
+              <% } %>
+          </div>
+          <div class="well">
+              <div class="text-right">
+                  <a class="btn btn-success" href="/campgrounds/<%= campground._id %>/comments/new">LEAVE A REVIEW</a> 
+              </div>
+              <hr>
+              <% campground.comments.forEach(function(comment){  %>
+                <div class="row">
+                    <div class="col-md-12">
+                        <em> <strong> <%= comment.author.username %>  </strong>  </em>   
+                        <span class="pull-right">10 days ago</span>   
+                        <p> 
+                           <%= comment.text %>       
+                        </p>
+                        <% if(validity == 1 && comment.author.id == loggedInUserId){ %>
+                            <a href="/campgrounds/<%=campground['id']%>/comments/edit/<%=comment['id']%>" class="btn btn-sm btn-warning">Edit</a>
+                            <a href="/campgrounds/<%=campground['id']%>/comments/delete/<%=comment['id']%>" class="btn btn-sm btn-danger">Delete</a>
+                        <% } %> 
+                    </div>
+                </div>
+               
+          <% }) %>  
+          </div>
+             
+            
+            
+        </div>
+
+    </div>    
+  </div>
+
+<% include ../partials/footer %>
