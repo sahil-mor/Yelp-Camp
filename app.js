@@ -14,8 +14,9 @@ var indexRoutes = require("./routes/index")
 var flash  = require("connect-flash")
 // // mongoose.connect('mongodb://localhost:27017/yelp_camp', { useNewUrlParser: true });
 // mongoose.connect("mongodb+srv://SahilMor:Sahil%4014@yelpcamp-fhn8u.mongodb.net/test?retryWrites=true&w=majority", { useNewUrlParser: true })
+url = process.env.DATABASEURL || "mongodb://localhost:27017/yelp_camp"
 console.log(process.env.DATABASEURL)
-mongoose.connect(process.env.DATABASEURL,{useNewUrlParser : true})
+mongoose.connect(url,{useNewUrlParser : true})
 app.use(flash());
 app.use(bodyParser.urlencoded({extended:true}))
 app.use(express.static("public"))
